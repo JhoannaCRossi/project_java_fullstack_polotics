@@ -9,10 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Empleado extends Persona implements Serializable {
+public class Empleado extends Persona {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     int idEmpleado;
     
    

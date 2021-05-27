@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Usuario implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     int idUsuario;
     
     @Basic

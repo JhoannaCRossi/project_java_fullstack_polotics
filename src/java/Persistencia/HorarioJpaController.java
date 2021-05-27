@@ -21,7 +21,7 @@ public class HorarioJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     public HorarioJpaController() {
-        emf = Persistence.createEntityManagerFactory("EntregaFinal2Com_PU");
+        emf = Persistence.createEntityManagerFactory("EntregaFinal2ComPU");
     }
      
     public EntityManager getEntityManager() {

@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Horario implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     int idHorario;
     
     @Basic

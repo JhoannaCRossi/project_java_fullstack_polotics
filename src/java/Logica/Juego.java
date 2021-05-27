@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 public class Juego implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     int idJuego;
     
     @Basic

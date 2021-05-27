@@ -28,19 +28,16 @@ public class Entrada implements Serializable {
     @OneToOne
     Juego unJuego;
     
-    @OneToOne
-    Cliente unCliente;
     
         
     public Entrada() {
     }
 
-    public Entrada(int idEntrada, Date fecha, String observacion, Juego unJuego, Cliente unCliente) {
+    public Entrada(int idEntrada, Date fecha, String observacion, Juego unJuego) {
         this.idEntrada = idEntrada;
         this.fecha = fecha;
         this.observacion = observacion;
         this.unJuego = unJuego;
-        this.unCliente = unCliente;
     }
 
     public String getObservacion() {
@@ -59,15 +56,6 @@ public class Entrada implements Serializable {
         this.unJuego = unJuego;
     }
 
-    public Cliente getUnCliente() {
-        return unCliente;
-    }
-
-    public void setUnCliente(Cliente unCliente) {
-        this.unCliente = unCliente;
-    }
-
-    
 
 
     public int getIdEntrada() {

@@ -5,14 +5,15 @@ import javax.persistence.Basic;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-                            //una tabla por cada clase
-@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS)
+import javax.persistence.MappedSuperclass;
+@MappedSuperclass                            //una tabla por cada clase
+@Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public class Persona {
     
-    @Id
-    String dni;
+    
     
     @Basic
+    String dni;
     String nombre;
     String apellido;
     String direccion;

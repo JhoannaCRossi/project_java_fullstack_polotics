@@ -22,7 +22,7 @@ public class EmpleadoJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
      public EmpleadoJpaController() {
-        emf = Persistence.createEntityManagerFactory("EntregaFinal2Com_PU");
+        emf = Persistence.createEntityManagerFactory("EntregaFinal2ComPU");
     }
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

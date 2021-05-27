@@ -2,19 +2,24 @@
 package Logica;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.TableGenerator;
 
 
 @Entity
-public class Cliente extends Persona implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int idCliente;
+public class Cliente extends Persona {
   
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE
+            )
+    int idCliente;
+
+    
 
     public Cliente() {
     }
@@ -23,8 +28,8 @@ public class Cliente extends Persona implements Serializable {
         super(dni, nombre, apellido, direccion, telefono);
         this.idCliente = idCliente;
     }
-    
-     
+
+   
     public int getIdCliente() {
         return idCliente;
     }
