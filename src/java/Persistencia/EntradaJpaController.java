@@ -131,5 +131,7 @@ public class EntradaJpaController implements Serializable {
             em.close();
         }
     }
+  
+    
     
 }

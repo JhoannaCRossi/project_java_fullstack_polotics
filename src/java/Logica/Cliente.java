@@ -12,10 +12,10 @@ import javax.persistence.TableGenerator;
 
 
 @Entity
-public class Cliente extends Persona {
+public class Cliente extends Persona  {
   
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE
+    @GeneratedValue(strategy = GenerationType.IDENTITY
             )
     int idCliente;
 
@@ -78,6 +78,11 @@ public class Cliente extends Persona {
     @Override
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    @Override
+    public String toString() {
+        return getNombre() + getApellido();
     }
 
      

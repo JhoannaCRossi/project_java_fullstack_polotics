@@ -26,7 +26,7 @@ public class ServletEliminarUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-               //recupero el id pasado por parametro
+        //recupero el id pasado por parametro
         String id = request.getParameter("id");
         
         //invoco a la controladora de la logica
@@ -37,12 +37,7 @@ public class ServletEliminarUsuario extends HttpServlet {
         response.sendRedirect("listaUsuario.jsp");
     }
 
-   
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+
 
   
     @Override

@@ -29,16 +29,22 @@
 
     <body>
         <!-- Session -->
-        <% HttpSession misession = request.getSession();
- //           //comprobar si existe usuario que haya iniciado session
-//            String usua = (String) request.getSession().getAttribute("usuario");
-//            if (usua == null) {
-//                response.sendRedirect("sinLogin.jsp");
-//            } else {
-//                Controladora controladora = new Controladora();
-//                misession.setAttribute("controladora", controladora);
-//            }
+        <% 
+            response.setHeader("Cache-Control","no-store");       
+            response.setDateHeader("Expires",0);       
+            response.setHeader("Pragma","no-cache");
+
+            HttpSession misession = request.getSession();
+           //comprobar si existe usuario que haya iniciado session
+            String usua = (String) request.getSession().getAttribute("usuario");
+            if (usua == null) {
+                response.sendRedirect("sinLogin.jsp");
+            } else {
+                Controladora controladora = new Controladora();
+                misession.setAttribute("controladora", controladora);
+            }
         %>
+        
         <!-- Sidenav -->
         <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
             <div class="scrollbar-inner">
@@ -89,13 +95,13 @@
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Modificación de Entradas:</h6>
                                     </div>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="nuevaEntrada.jsp" class="dropdown-item">
                                         <i class="fas fa-user-plus"></i>
                                         <span>Alta</span>
                                     </a>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="listaEntrada.jsp" class="dropdown-item">
                                         <i class="fas fa-users-cog"></i>
-                                        <span>Editar</span>
+                                        <span>Lista</span>
                                     </a>
 
                                 </div>  
@@ -134,14 +140,14 @@
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Modificación de Empleados:</h6>
                                     </div>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="nuevoEmpleado.jsp" class="dropdown-item">
                                         <i class="fas fa-user-plus"></i>
                                         <span>Alta</span>
                                     </a>
 
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="listaEmpleado.jsp" class="dropdown-item">
                                         <i class="fas fa-users-cog"></i>
-                                        <span>Editar</span>
+                                        <span>Lista</span>
                                     </a>
 
                                 </div>
@@ -159,11 +165,11 @@
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Modificación de Juegos:</h6>
                                     </div>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="nuevoJuego.jsp" class="dropdown-item">
                                         <i class="fas fa-user-plus"></i>
                                         <span>Alta</span>
                                     </a>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="listaJuego.jsp" class="dropdown-item">
                                         <i class="fas fa-users-cog"></i>
                                         <span>Editar</span>
                                     </a>
@@ -182,7 +188,11 @@
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Modificación de Horarios:</h6>
                                     </div>                              
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="nuevoHorario.jsp" class="dropdown-item">
+                                        <i class="fas fa-users-cog"></i>
+                                        <span>Alta</span>
+                                    </a>
+                                    <a href="listaHorario.jsp" class="dropdown-item">
                                         <i class="fas fa-users-cog"></i>
                                         <span>Lista</span>
                                     </a>
@@ -216,9 +226,7 @@
                                 </div>
                             </li>
                             <li class="nav-item d-sm-none">
-                                <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                                    <i class="ni ni-zoom-split-in"></i>
-                                </a>
+                                
                             </li>
                             <li class="nav-item dropdown">
 
@@ -245,7 +253,7 @@
                                     </div>
 
                                     <div class="dropdown-divider"></div>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="outLogin.jsp" class="dropdown-item">
                                         <i class="ni ni-user-run"></i>
                                         <span>Logout</span>
                                     </a>
@@ -269,6 +277,8 @@
                                 <th scope="col" class="sort" data-sort="idCliente">ID Usuario</th>
                                 <th scope="col" class="sort" data-sort="usuario">Usuario</th>
                                 <th scope="col" class="sort" data-sort="nombre">Contraseña</th>
+                                <th scope="col" class="sort" data-sort="edicion">Borrar/Editar</th>
+
 
                             </tr>
                         </thead>
@@ -305,7 +315,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            <footer class="stycky-footer bg-white">
+            <footer class="stycky-footer bg-white" style="position: fixed; bottom: 0; width: 100%;">
                 <div class="container my-auto">
                     <div class="col-lg-12">
                         <div class="copyright text-center text-lg-center  my-auto text-muted">

@@ -7,9 +7,12 @@ import Logica.Juego;
 import Logica.Usuario;
 import Logica.Horario;
 import Persistencia.exceptions.NonexistentEntityException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
 
 public class ControladoraPersistencia {
 
@@ -49,8 +52,20 @@ public class ControladoraPersistencia {
         }
     }
 
-    //CLIENTE
-    //metodo para crear cliente
+    //lista de entradas
+    public List<Entrada> getEntradas() {
+        return (entradaJPA.findEntradaEntities());
+    }
+
+    //buscar entrada por id
+    public Entrada buscarEntrada(int id) {
+        return (entradaJPA.findEntrada(id));
+    }
+
+    //entradas vendidas por dia
+
+        //CLIENTE
+        //metodo para crear cliente
     public void crearCliente(Cliente cliente) {
         try {
             clienteJPA.create(cliente);
@@ -77,14 +92,14 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //lista de clientes
-    public List<Cliente> getClientes(){
-        return(clienteJPA.findClienteEntities());
+    public List<Cliente> getClientes() {
+        return (clienteJPA.findClienteEntities());
     }
-    
-    public Cliente buscarCliente(int id){
-        return(clienteJPA.findCliente(id));
+
+    public Cliente buscarCliente(int id) {
+        return (clienteJPA.findCliente(id));
     }
 
     //JUEGO
@@ -115,6 +130,16 @@ public class ControladoraPersistencia {
         }
     }
 
+    //metodo qu busca juego por id
+    public Juego buscarJuego(int id) {
+        return (juegoJPA.findJuego(id));
+    }
+
+    //lista de juegos
+    public List<Juego> getJuegos() {
+        return (juegoJPA.findJuegoEntities());
+    }
+
     //EMPLEADO
     //metodo para crear empleado
     public void crearEmpleado(Empleado empleado) {
@@ -143,8 +168,19 @@ public class ControladoraPersistencia {
         }
     }
 
+    //lista de empleados
+    public List<Empleado> getEmpleados() {
+        return (empleadoJPA.findEmpleadoEntities());
+    }
+
+    //busqueda de empleado por id
+    public Empleado buscarEmpleado(int id) {
+        return (empleadoJPA.findEmpleado(id));
+
+    }
+
     //USUARIO
-    //metodo para crear empleado
+    //metodo para crear usuario
     public void crearUsuario(Usuario usuario) {
         try {
             usuarioJPA.create(usuario);
@@ -153,7 +189,7 @@ public class ControladoraPersistencia {
         }
     }
 
-    //metodo para eliminar empleado
+    //metodo para eliminar usuario
     public void eliminarUsuario(int idUsuario) {
         try {
             usuarioJPA.destroy(idUsuario);
@@ -162,7 +198,7 @@ public class ControladoraPersistencia {
         }
     }
 
-    //metodo para editar empleado
+    //metodo para editar usuario
     public void editarUsuario(Usuario usuario) {
         try {
             usuarioJPA.edit(usuario);
@@ -170,17 +206,17 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     //lista de usuarios
-   public List<Usuario> getUsuarios(){
-        return(usuarioJPA.findUsuarioEntities());
+    public List<Usuario> getUsuarios() {
+        return (usuarioJPA.findUsuarioEntities());
     }
 
-   //metodo para editar usuario
-    public Usuario buscarUsuario(int id){
-        return(usuarioJPA.findUsuario(id));
+    //metodo para editar usuario
+    public Usuario buscarUsuario(int id) {
+        return (usuarioJPA.findUsuario(id));
     }
-    
+
     //HORARIO
     //metodo para crear Horario
     public void crearHorario(Horario horario) {
@@ -189,6 +225,11 @@ public class ControladoraPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    //metodo para buscar usuario
+    public Horario buscarHorario(int id) {
+        return (horarioJPA.findHorario(id));
     }
 
     //metodo para eliminar Horario
@@ -200,6 +241,11 @@ public class ControladoraPersistencia {
         }
     }
 
+    //lista de horarios
+    public List<Horario> getHorarios() {
+        return (horarioJPA.findHorarioEntities());
+    }
+
     //metodo para editar Horario
     public void editarHorario(Horario horario) {
         try {
@@ -208,6 +254,5 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
 }

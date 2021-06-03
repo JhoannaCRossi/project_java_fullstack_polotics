@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class Empleado extends Persona {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idEmpleado;
     
    

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Horario implements Serializable {
+public class Horario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -37,6 +37,7 @@ public class Horario implements Serializable {
     }
 
     public String getHorarioApertura() {
+    
         return horarioApertura;
     }
 

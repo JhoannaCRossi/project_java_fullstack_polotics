@@ -36,7 +36,7 @@ public class ServletEditarUsuario extends HttpServlet {
         Usuario usuario = controladora.buscarUsuario(Integer.parseInt(id));
         
         HttpSession misession = request.getSession(true);
-        misession.setAttribute("usuario", usuario);
+        misession.setAttribute("usuarioEditado", usuario);
         
         response.sendRedirect("editarUsuario.jsp");
         

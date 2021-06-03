@@ -13,31 +13,56 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Entrada implements Serializable {
+public class Entrada {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idEntrada;
     
     @Temporal(TemporalType.DATE)
     Date fecha;
+   
     
     @Basic
     String observacion;
+    String hora;
+    
     
     @OneToOne
     Juego unJuego;
+    
+    @OneToOne
+    Cliente cliente;
     
     
         
     public Entrada() {
     }
 
-    public Entrada(int idEntrada, Date fecha, String observacion, Juego unJuego) {
+    public Entrada(int idEntrada, Date fecha, String observacion, String hora, Juego unJuego, Cliente cliente) {
         this.idEntrada = idEntrada;
         this.fecha = fecha;
         this.observacion = observacion;
+        this.hora = hora;
         this.unJuego = unJuego;
+        this.cliente = cliente;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+  
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getObservacion() {
@@ -55,8 +80,6 @@ public class Entrada implements Serializable {
     public void setUnJuego(Juego unJuego) {
         this.unJuego = unJuego;
     }
-
-
 
     public int getIdEntrada() {
         return idEntrada;

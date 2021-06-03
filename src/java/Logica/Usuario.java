@@ -9,9 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario implements Serializable {
+public class Usuario{
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idUsuario;
     
     @Basic
@@ -50,4 +50,11 @@ public class Usuario implements Serializable {
     public void setContraseniaUsuario(String contraseniaUsuario) {
         this.contraseniaUsuario = contraseniaUsuario;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(idUsuario);
+    }
+    
+    
 }
